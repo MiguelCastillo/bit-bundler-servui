@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/MiguelCastillo/bit-bundler-servui#readme",
   "devDependencies": {
+    "babel-preset-react": "^6.16.0",
     "bit-bundler": "^5.3.1",
     "bit-bundler-extractsm": "^1.0.1",
     "bit-bundler-minifyjs": "^1.0.4",
@@ -41,5 +42,9 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "load-grunt-tasks": "^3.5.2"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   }
 }
