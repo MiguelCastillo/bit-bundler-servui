@@ -5,6 +5,8 @@ var babelPlugin = require("bit-loader-babel");
 var builtins = require("bit-loader-builtins");
 var minifyjs = require("bit-bundler-minifyjs");
 var extractsm = require("bit-bundler-extractsm");
+var splitter = require("bit-bundler-splitter");
+var babelCore = require("babel-core");
 
 module.exports = {
   dev: {
@@ -18,18 +20,24 @@ module.exports = {
       plugins: [
         eslintPlugin(),
         jsPlugin(),
-        babelPlugin(),
+        babelPlugin({
+          core: babelCore,
+          options: {
+            presets: ["es2015", "react"]
+          }
+        }),
         builtins()
       ]
     },
     bundler: {
       plugins: [
+        splitter("dist/vendor.js", { match: { path: /\/node_modules\// } }),
+        extractsm()
       ]
     }
   },
   build: {
     Bitbundler: Bitbundler,
-    watch: true,
     files: [{
       src: "src/index.js",
       dest: "dist/index.js"
@@ -38,12 +46,17 @@ module.exports = {
       plugins: [
         eslintPlugin(),
         jsPlugin(),
-        babelPlugin(),
+        babelPlugin({
+          options: {
+            presets: ["es2015", "react"]
+          }
+        }),
         builtins()
       ]
     },
     bundler: {
       plugins: [
+        splitter("dist/vendor.js", { match: { path: /\/node_modules\// } }),
         minifyjs({ banner: buildBannerString() }),
         extractsm()
       ]
