@@ -1,10 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import DOMReady from './utils/DOMReady';
+import mainView from './mainView';
 
 DOMReady(() => {
-  ReactDOM.render(
-    <h1>Hello, world!</h1>,
-    document.getElementById('app')
-  );
+  mainView();
 });
