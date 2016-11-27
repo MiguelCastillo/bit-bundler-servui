@@ -1,9 +1,9 @@
 var deferred = new Promise(function(resolve) {
-  if (document.readyState === "complete") {
+  if (document.readyState === 'complete') {
     resolve();
   }
   else {
-    document.addEventListener("DOMContentLoaded", (/*evt*/) => resolve());
+    document.addEventListener('DOMContentLoaded', (/*evt*/) => resolve());
   }
 });
 

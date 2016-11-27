@@ -6,13 +6,13 @@ module.exports = {
     "options": {
       "base": "dist",
       "protocol": "http",
-      "port": 8085,
+      "port": 8045,
       "hostname": "localhost",
       "keepalive": true,
-      "open": "http://localhost:8085/index.html",
+      "open": "http://localhost:8045/index.html",
       "middleware": function(connect, options, middlewares) {
         middlewares.unshift(fallback({ index: "/index.html" }));
-        middlewares.unshift(livereload({ port: 32192 }));
+        middlewares.unshift(livereload({ port: 32247 }));
         return middlewares;
       }
     }
