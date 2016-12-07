@@ -1,6 +1,7 @@
 var jsPlugin = require("bit-loader-js");
 var eslintPlugin = require("bit-eslint");
 var babelPlugin = require("bit-loader-babel");
+var excludesPlugin = require("bit-loader-excludes");
 var extensionsPuglin = require("bit-loader-extensions");
 var nodeBuiltins = require("bit-loader-builtins");
 var cssPlugin = require("bit-loader-css");
@@ -11,6 +12,9 @@ var extractsm = require("bit-bundler-extractsm");
 var splitter = require("bit-bundler-splitter");
 var babelCore = require("babel-core");
 
+// Config file
+var config = require("../.bundlerrc.json");
+
 module.exports = {
   options: {
     files: [{
@@ -19,13 +23,14 @@ module.exports = {
     }],
     loader: {
       plugins: [
-        extensionsPuglin(["js", "jsx", "css", "json"]),
-        httpResourcePlugin(),
-        eslintPlugin({ extensions: ["js", "jsx"] }),
-        jsPlugin({ extensions: ["js", "jsx"] }),
-        babelPlugin({ core: babelCore }),
-        cssPlugin(),
-        jsonPlugin(),
+        excludesPlugin(config.excludes),
+        extensionsPuglin(config.extensions),
+        httpResourcePlugin(config.httpResources),
+        eslintPlugin(config.eslint),
+        jsPlugin(config.js),
+        babelPlugin(Object.assign({ core: babelCore }, config.babel)),
+        cssPlugin(config.css),
+        jsonPlugin(config.json),
         nodeBuiltins()
       ]
     }
