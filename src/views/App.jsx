@@ -1,4 +1,5 @@
 import React from 'react';
+import Dependency from './Dependency';
 import './app.css';
 
 class App extends React.Component {
@@ -6,11 +7,11 @@ class App extends React.Component {
     return (
       <div id="app">
         <div id="app-header">
-          Welcome to <a href="https://github.com/MiguelCastillo/bundler-reactor">bundler-reactor</a>
+          bundler-service
         </div>
         <div id="app-body">
-          <h2>Hello, world!</h2>
-          <p>If you have any feedback, I would love to hear it! - Please open an issue <a href="https://github.com/MiguelCastillo/bundler-reactor/issues">here</a></p>
+          <h2 className="dependencies">Dependencies</h2>
+          { this.props.dependencies.map(dependency => <Dependency key={ dependency.name } { ...dependency } />) }
         </div>
         <div id="app-footer">
           Miguel Castillo
