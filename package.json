@@ -27,7 +27,7 @@
     "bit-bundler": "^10.0.0",
     "bit-bundler-extractsm": "^2.1.0",
     "bit-bundler-minifyjs": "^3.0.2",
-    "bit-bundler-splitter": "^5.0.0",
+    "bit-bundler-splitter": "^6.0.0",
     "bit-eslint": "^1.1.3",
     "bit-loader-babel": "^2.0.0",
     "bit-loader-builtins": "^2.0.0",
