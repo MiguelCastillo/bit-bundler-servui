@@ -46,7 +46,7 @@
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "load-grunt-tasks": "^3.5.2",
+    "load-grunt-tasks": "^4.0.0",
     "bit-loader-httpresource": "^1.0.1",
     "bit-loader-excludes": "^1.0.1",
     "node-proxy-middleware": "^0.15.2"
